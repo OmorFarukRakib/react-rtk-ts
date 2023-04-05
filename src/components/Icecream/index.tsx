@@ -1,8 +1,8 @@
 import React from 'react'
 // import { useSelector, useDispatch } from "react-redux";
-import { useAppSelector, useAppDispatch } from '../../app/hooks'
+import { useAppSelector, useAppDispatch } from '../../redux/app/hooks'
 
-import { icecreamOrdered, icecreamRestocked } from '../../features/icecream/icecreamSlice';
+import { icecreamOrdered, icecreamRestocked } from '../../redux/features/icecream/icecreamSlice';
 const index = () => {
     const icecreamData = useAppSelector((state) => state.icecream);
     const dispatch = useAppDispatch();

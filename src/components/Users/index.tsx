@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 // import { useSelector, useDispatch } from "react-redux";
-import { useAppSelector, useAppDispatch } from '../../app/hooks'
+import { useAppSelector, useAppDispatch } from '../../redux/app/hooks'
 
-import { fetchUsers } from "../../features/user/userSlice";
+import { fetchUsers } from "../../redux/features/user/userSlice";
 const index = () => {
   const usersData = useAppSelector((state) => state.users);
   const dispatch = useAppDispatch();

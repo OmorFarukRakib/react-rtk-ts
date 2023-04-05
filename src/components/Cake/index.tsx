@@ -1,7 +1,7 @@
 import React from 'react'
 // import { useSelector, useDispatch } from 'react-redux';
-import { useAppSelector, useAppDispatch } from '../../app/hooks'
-import { cakeOrdered, cakeRestocked } from '../../features/cake/cakeSlice';
+import { useAppSelector, useAppDispatch } from '../../redux/app/hooks'
+import { cakeOrdered, cakeRestocked } from '../../redux/features/cake/cakeSlice';
 const index = () => {
     const cakeData = useAppSelector((state) => state.cake);
     const dispatch = useAppDispatch();
