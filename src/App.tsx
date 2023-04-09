@@ -1,15 +1,17 @@
-import "./App.css";
-import Cake from "./components/Cake";
-import Icecream from "./components/Icecream";
-import Users from "./components/Users";
+import styles from './App.module.css'
+import classnames from 'classnames'
+import Cake from './components/Cake'
+import IceCream from './components/Icecream'
+import Users from './components/Users'
 function App() {
+
   return (
-    <div className="App">
-      <Cake />
-      <Icecream />
-      <Users />
+    <div className={classnames(styles['app'])}>
+      <Cake/>
+      <IceCream/>
+      <Users/>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

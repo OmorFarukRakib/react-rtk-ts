@@ -1,43 +1,28 @@
-import React, { useEffect } from "react";
-// import { useSelector, useDispatch } from "react-redux";
-import { useAppSelector, useAppDispatch } from '../../redux/app/hooks'
+import React, { useEffect } from 'react'
+import { useAppDispatch, useAppSelector } from '../../redux/store/hooks'
+import { fetchUsers } from '../../redux'
 
-import { fetchUsers } from "../../redux/features/user/userSlice";
-const index = () => {
-  const usersData = useAppSelector((state) => state.users);
-  const dispatch = useAppDispatch();
-  const fetchUserData = async () => {
-    console.log("start");
-    // await wait(5000);
-    dispatch(fetchUsers());
-    console.log("end");
-  };
+type Props = {}
 
-  useEffect(() => {
-    fetchUserData();
-  }, []);
+const Users = (props: Props) => {
+    
+    const users = useAppSelector((state) => state.users)
+    const dispatch = useAppDispatch()
+
+    useEffect(() => {
+        dispatch(fetchUsers('users'))
+    }, [])
+
   return (
     <div>
-      {usersData.loading === true ? <p>LOADING</p> : null}
-      {usersData.error && <p>{usersData.error}</p>}
-      {usersData.users.length > 0 ? (
-        <>
-          {usersData.users.map((user) => (
-            <>
-              <p>
-                {user.id} - {user.name}
-              </p>
-            </>
-          ))}
-        </>
-      ) : null}
-      <button onClick={() => fetchUserData()}>retry</button>
+        {users.loading ? 'Loading' : null}
+        {users.users.length > 0 ? (<div>
+            {users.users.map((user) => (
+                <p> {user.id} - {user.name} </p>
+        ))}
+        </div>) : null}
     </div>
-  );
-};
+  )
+}
 
-export default index;
-
-const wait = (ms: number) => {
-  return new Promise((resolve) => setTimeout(resolve, ms));
-};
+export default Users

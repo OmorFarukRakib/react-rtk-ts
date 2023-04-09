@@ -1,0 +1,5 @@
+.cake-wrapper{
+    border: 1px solid chocolate;
+    display: grid;
+    gap: 5px;
+}

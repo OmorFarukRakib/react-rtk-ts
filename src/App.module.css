@@ -1,0 +1,7 @@
+.app{
+  display: grid;
+  /* grid-template-columns: 1fr, 1fr;
+  border: 2px solid red; */
+  grid-auto-flow: column;
+  gap: 5rem;
+}

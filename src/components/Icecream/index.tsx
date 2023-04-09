@@ -1,23 +1,20 @@
 import React from 'react'
-// import { useSelector, useDispatch } from "react-redux";
-import { useAppSelector, useAppDispatch } from '../../redux/app/hooks'
+import classnames from 'classnames'
+import styles from './icecream.module.css'
+import { useAppSelector, useAppDispatch } from '../../redux/store/hooks'
+import { icecreamOrder, icecreamRestock } from '../../redux'
+type Props = {}
 
-import { icecreamOrdered, icecreamRestocked } from '../../redux/features/icecream/icecreamSlice';
-const index = () => {
-    const icecreamData = useAppSelector((state) => state.icecream);
-    const dispatch = useAppDispatch();
-
+const IceCream = (props: Props) => {
+    const numOfIcecream = useAppSelector(state => state.icecream)
+    const dispatch = useAppDispatch()
   return (
-    <div>
-      <div>Icecream amount- {icecreamData.numOfIcecream}</div>
-      <button onClick={() => dispatch(icecreamOrdered())}>
-        Buy a icecream
-      </button>
-      <button onClick={() => dispatch(icecreamRestocked(10))}>
-        restoke a icecream
-      </button>
+    <div className={classnames(styles['icecream-wrapper'])}>
+        No of IceCream - {numOfIcecream.numOfIcecream}
+        <button onClick={()=> dispatch(icecreamOrder(1))}>Sold 1 IceCream</button> 
+        <button onClick={()=> dispatch(icecreamRestock(1))}>Restock 1 IceCream</button> 
     </div>
-  );
+  )
 }
 
-export default index
+export default IceCream
